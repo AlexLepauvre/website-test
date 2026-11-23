@@ -866,12 +866,13 @@ body {
     webkit-tap-highlight-color: #{{ site.data.template.color.primary }};
 }
 .maps {
-    max-width: 512px;      /* caps size on large screens */
+    max-width: 1200px;      /* caps size on large screens */
     margin: 0 auto;        /* centers the container */
 }
 .maps iframe {
     width: 100%;           /* fills the container */
-    height: 400px;         /* or use aspect-ratio below */
+    aspect-ratio: 4 / 3;   /* or 16 / 9 for a wider map */
+    height: auto;
     display: block;
     border: 0;
 }
