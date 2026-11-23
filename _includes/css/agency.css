@@ -866,7 +866,12 @@ body {
     webkit-tap-highlight-color: #{{ site.data.template.color.primary }};
 }
 .maps {
-    width: 512px;
+    max-width: 512px;      /* caps size on large screens */
+    margin: 0 auto;        /* centers the container */
+}
+.maps iframe {
+    width: 100%;           /* fills the container */
+    height: 400px;         /* or use aspect-ratio below */
     display: block;
-    margin: 0 auto;
+    border: 0;
 }
