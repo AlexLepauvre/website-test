@@ -1,0 +1,41 @@
+---
+layout: null
+permalink: /
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting…</title>
+    <script>
+      (function () {
+        // Detect browser language, with fallbacks for older browsers
+        var lang = window.navigator.languages ? window.navigator.languages[0] : null;
+        lang = lang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;
+
+        // Reduce e.g. "de-DE" or "de_DE" to just "de"
+        var shortLang = lang;
+        if (shortLang.indexOf('-') !== -1) shortLang = shortLang.split('-')[0];
+        if (shortLang.indexOf('_') !== -1) shortLang = shortLang.split('_')[0];
+
+        // Map languages to pages; default to English
+        var baseUrl = '{{ site.baseurl }}';
+        var pages = {
+          'en': baseUrl + '/en/',
+          'de': baseUrl + '/de/',
+          'fr': baseUrl + '/fr/'
+        };
+        var target = pages[shortLang] || pages['en'];
+
+        // replace() avoids polluting the browser history
+        window.location.replace(target);
+      })();
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url={{ site.baseurl }}/en/">
+    </noscript>
+  </head>
+  <body>
+    <p>Redirecting… <a href="{{ site.baseurl }}/en/">Click here if you are not redirected</a>.</p>
+  </body>
+</html>
